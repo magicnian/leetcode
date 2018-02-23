@@ -52,7 +52,7 @@ public class RemoveElement {
      * 试想：nums=[1,2,3,4,5] val=5
      * functio1会把整个数组遍历一遍
      * 这种情况下耗时会增加
-     *
+     * <p>
      * 当遇到nums[i]=val时，交换当前值和nums[n]
      * 每次交换都会把和val相等的值往数组最后抛，
      * 并且每次都会变相的使数组的长度减1，
@@ -75,5 +75,24 @@ public class RemoveElement {
             }
         }
         return n;
+    }
+
+
+    /**
+     * 举例
+     * nums=[1,2,2,3,1] val=2
+     * 想不明白……
+     * @param nums
+     * @param val
+     * @return
+     */
+    public static int function3(int[] nums, int val) {
+        int end = -1;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
+                nums[++end] = nums[i];
+            }
+        }
+        return ++end;
     }
 }
