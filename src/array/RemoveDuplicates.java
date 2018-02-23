@@ -20,7 +20,7 @@ import java.util.Map;
 public class RemoveDuplicates {
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1,2,2,3,3};
+        int[] nums = new int[]{1, 2, 2, 3, 3};
         System.out.println(function1(nums));
         System.out.println(function2(nums));
     }
@@ -75,6 +75,22 @@ public class RemoveDuplicates {
             }
         }
         return len;
+    }
+
+    /**
+     * 原理同function2,但是function2运行更快
+     * @param nums
+     * @return
+     */
+    public static int funciton3(int[] nums) {
+        int i = 0;
+        for (int j = 1; j < nums.length; j++) {
+            if (nums[j] != nums[i]) {
+                i++;
+                nums[i] = nums[j];
+            }
+        }
+        return i + 1;
     }
 
 }
